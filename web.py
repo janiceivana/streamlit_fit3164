@@ -20,19 +20,6 @@ alt.themes.enable("dark")
 #######################
 # Load data
 calendar = pd.read_csv("calendar.csv")
-# evaluation = pd.read_csv("sales_train_evaluation.csv")
-# validation = pd.read_csv("sales_train_validation.csv")
-# prices = pd.read_csv("sell_prices.csv")
-# sample = pd.read_csv("sample_submission.csv")
-
-# hobbies_1 = pd.read_csv('hobbies_1.csv')
-# hobbies_2 = pd.read_csv('hobbies_2.csv')
-# household_1 = pd.read_csv('household_1.csv')
-# household_2 = pd.read_csv('household_2.csv')
-# food_1 = pd.read_csv('food_1.csv')
-# food_2 = pd.read_csv('food_2.csv')
-# food_3 = pd.read_csv('food_3.csv')
-
 h1_df = pd.read_csv('h1_df.csv')
 h2_df= pd.read_csv('h2_df.csv')
 ho1_df = pd.read_csv('ho1_df.csv')
@@ -40,21 +27,6 @@ ho2_df = pd.read_csv('ho2_df.csv')
 f1_df = pd.read_csv('f1_df.csv')
 f2_df = pd.read_csv('f2_df.csv')
 f3_df = pd.read_csv('f3_df.csv')
-
-
-# calendar = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\calendar.csv')
-# f1_df = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\f1_df.csv')
-# f2_df = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\f2_df.csv')
-# f3_df = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\f3_df.csv')
-# h1_df = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\h1_df.csv')
-# h2_df = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\h2_df.csv')
-# ho1_df = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\ho1_df.csv')
-# ho2_df = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\ho2_df.csv')
-evaluation = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\sales_train_evaluation.csv')
-# validation = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\sales_train_validation.csv')
-# sample = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\sample_submission.csv')
-# prices = pd.read_csv('D:\\YEAR 3\\Semester 2\\backup\\sell_prices.csv')
-
 
 
 department_data = {
@@ -75,15 +47,14 @@ department_data = {
 # if st.button("Click Me"):
 #     st.write(f"Hello `{name}`")
 
-
+dept_list = [ 'FOODS_3', 'FOODS_2', 'FOODS_1' , 'HOUSEHOLD_2', 'HOUSEHOLD_1', 'HOBBIES_2', 'HOBBIES_1']
 #######################
 # Sidebar
 with st.sidebar:
     st.title('🤖 P5: Pricing Optimization and Analysis Dashboard')
     
     year_list = list(calendar.year.unique())[::-1]
-    dept_list = list(evaluation.dept_id.unique())[::-1]
-    state_list = list(evaluation.state_id.unique())[::-1]
+    state_list = list(h1_df.state_id.unique())[::-1]
 
     selected_department = st.selectbox('Select a deparment', dept_list)
     selected_data = department_data[selected_department]

@@ -59,10 +59,10 @@ with st.sidebar:
     selected_department = st.selectbox('Select a deparment', dept_list)
     selected_data = department_data[selected_department]
 
-    item_list = list(selected_data.item_id.unique())[::-1]
+    # item_list = list(selected_data.item_id.unique())[::-1]
 
-    selected_item= st.selectbox('Select a deparment', item_list)
-    selected_item_level = selected_data[selected_data.item_id == selected_item]
+    # selected_item= st.selectbox('Select an Item', item_list)
+    # selected_item_level = selected_data[selected_data.item_id == selected_item]
 
     selected_state = st.selectbox('Select a state', state_list)
     selected_data = selected_data[selected_data.state_id == selected_state]
@@ -99,8 +99,7 @@ with col[0]:
     st.markdown('#### Price Elasticity Model')
     
     vis_elasticity(selected_data)
-    item_list = list(selected_item_level.drop_duplicates('price')['level'])[::-1]
-    st.text(item_list)
+
 
 
     

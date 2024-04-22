@@ -54,9 +54,7 @@ with st.sidebar:
     st.title('📊 P5: Price Elasticity Modelling')
     
     year_list = list(calendar.year.unique())[::-1]
-    year_list.append("Overall")
     state_list = list(h1_df.state_id.unique())[::-1]
-    state_list.append("Overall")
 
     selected_department = st.selectbox('Select a deparment', dept_list)
     selected_data = department_data[selected_department]

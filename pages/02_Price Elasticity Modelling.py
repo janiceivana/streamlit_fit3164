@@ -70,7 +70,7 @@ with st.sidebar:
     selected_data = selected_data[selected_data.state_id == selected_state]
 
     selected_year = st.selectbox('Select a year', year_list)
-    if isinstance(selected_year, pd.Timestamp):
+    if isinstance(selected_year, chr):
         selected_data = selected_data[selected_data.year == selected_year]
 
 

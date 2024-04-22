@@ -63,7 +63,7 @@ with st.sidebar:
 def vis_optimization(data):
     
     # Create a scatter plot
-    fig, ax = plt.subplots()
+    fig, ax = plt.show()
     ax.scatter(data['opti_price'], data['optimized_revenue'])
     ax.set_title('Scatter Plot of Price and Revenu')
     ax.set_xlabel('Price')

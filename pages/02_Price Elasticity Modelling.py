@@ -51,7 +51,7 @@ dept_list = [ 'FOODS_3', 'FOODS_2', 'FOODS_1' , 'HOUSEHOLD_2', 'HOUSEHOLD_1', 'H
 #######################
 # Sidebar
 with st.sidebar:
-    st.title('🤖 P5: Pricing Optimization and Analysis Dashboard')
+    st.title('📊 P5: Price Elasticity Modelling')
     
     year_list = list(calendar.year.unique())[::-1]
     state_list = list(h1_df.state_id.unique())[::-1]

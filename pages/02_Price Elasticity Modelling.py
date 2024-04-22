@@ -54,10 +54,7 @@ with st.sidebar:
     st.title('📊 P5: Price Elasticity Modelling')
     
     year_list = list(calendar.year.unique())[::-1]
-    year_list = pd.to_numeric(year_list)
     year_list.append("Overall")
-    st.write(year_list)
-
     state_list = list(h1_df.state_id.unique())[::-1]
 
     selected_department = st.selectbox('Select a deparment', dept_list)
@@ -72,8 +69,10 @@ with st.sidebar:
     selected_data = selected_data[selected_data.state_id == selected_state]
 
     selected_year = st.selectbox('Select a year', year_list)
-    if isinstance(selected_year):
-        selected_data = selected_data[selected_data.year == selected_year]
+    if (selected_year == 'Overall'):
+        None
+    else:    
+        selected_data  = selected_data[selected_data.year == selected_year]
 
 
     # color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']

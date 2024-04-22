@@ -61,29 +61,18 @@ with st.sidebar:
     selected_data = selected_data[selected_data.year == selected_year]
 
 #######################
-
-def vis_optimization(data):
-    fig = make_subplots(specs=[[{"secondary_y": True}]])
-    
-    # Add traces for original data
-    fig.add_trace(
-        go.Scatter(x=data['price'], y=data['revenue'], mode='lines', name='Original Revenue'),
-        secondary_y=False,
-    )
-    
-    # Add traces for optimized data
-    fig.add_trace(
-        go.Scatter(x=data['opti_price'], y=data['optimized_revenue'], mode='lines', name='Optimized Revenue'),
-        secondary_y=True,
-    )
-    
-    # Update layout
-    fig.update_layout(title='Comparison of Original and Optimized Revenue',
-                      xaxis_title='Price', yaxis_title='Revenue',
-                      legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01))
+def vis_optimization_scatter(data):
+    # Create a scatter plot for the original and optimized data
+    fig = px.scatter(data, x='price', y='revenue', title='Original vs. Optimized Revenue',
+                     labels={'price': 'Price', 'revenue': 'Revenue'},
+                     color_discrete_map={'price': 'blue', 'opti_price': 'red'},
+                     opacity=0.7,
+                     symbol_sequence=['circle', 'x'],
+                     symbol_map={'price': 'circle', 'opti_price': 'x'})
     
     # Display the plot using Streamlit
     st.plotly_chart(fig, use_container_width=True)
+
 
 #######################
 # Dashboard Main Panel

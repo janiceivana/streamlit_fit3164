@@ -62,7 +62,7 @@ with st.sidebar:
 def vis_optimization(data):
 
     # Create a line chart for the old data
-    fig = px.line(data, x=[data.price,data.opti_price], y=[data.revenue, data.optimized_revenue], title='Data')
+    fig = px.line(data, x=['price', 'opti_price'], y=['revenue', 'optimized_revenue'], title='Data')
 
     # Display the plots side by side using Streamlit
     st.plotly_chart(fig, use_container_width=True)

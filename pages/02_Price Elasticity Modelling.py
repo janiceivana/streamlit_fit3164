@@ -66,17 +66,21 @@ with st.sidebar:
     # selected_item= st.selectbox('Select an Item', item_list)
     # selected_item_level = selected_data[selected_data.item_id == selected_item]
 
-    selected_state = st.selectbox('Select a state', state_list)
-    if (selected_state == 'Overall'):
-        None
-    else:    
+    selected_state = st.selectbox('Select a state', ['Overall'] + state_list)
+    selected_year = st.selectbox('Select a year', ['Overall'] + year_list)
+
+    if selected_state == 'Overall' and selected_year == 'Overall':
+        st.write("Please select a state or a year.")
+        st.stop()
+
+    selected_data = selected_data.copy()  # Use a copy to avoid modifying the original data
+
+    if selected_state != 'Overall':
         selected_data = selected_data[selected_data.state_id == selected_state]
 
-    selected_year = st.selectbox('Select a year', year_list)
-    if (selected_year == 'Overall'):
-        None
-    else:    
-        selected_data  = selected_data[selected_data.year == selected_year]
+    if selected_year != 'Overall':
+        selected_data = selected_data[selected_data.year == selected_year]
+
 
 
     # color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']

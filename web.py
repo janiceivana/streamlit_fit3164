@@ -79,7 +79,7 @@ def vis_elasticity(data):
     ax.scatter(data['price_change'], data['sale_change'])
     ax.set_title('Scatter Plot of Price Change% vs Sale Change%')
     ax.set_xlabel('Price Change%')
-    ax.set_ylabel('Sale Change%')
+    ax.set_ylabel('Sale Change')
     ax.grid(True)
 
     # Display the plot using Streamlit
@@ -94,5 +94,6 @@ with col[0]:
     st.markdown('#### Price Elasticity Model')
     
     vis_elasticity(selected_data)
+    print(selected_data['level'])
 
     

@@ -99,6 +99,7 @@ with col[0]:
     st.markdown('#### Price Elasticity Model')
     
     vis_elasticity(selected_data)
+    st.text(round(abs(selected_data.price_change)).unique())
 
 
 

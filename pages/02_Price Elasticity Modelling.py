@@ -69,7 +69,7 @@ with st.sidebar:
     selected_data = selected_data[selected_data.state_id == selected_state]
 
     selected_year = st.selectbox('Select a year', year_list)
-    if selected_year.dtypes == 'int':
+    if selected_year.dtypes == 'int64':
         selected_data = selected_data[selected_data.year == selected_year]
     else:
         None

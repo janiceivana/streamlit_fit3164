@@ -58,7 +58,7 @@ with st.sidebar:
 
 
 yearly_predicted_revenue = selected_data.groupby('year')['optimized_revenue'].sum()
-yearly_optimal_price = selected_data.groupby('year')['optimal_price'].mean()
+yearly_optimal_price = selected_data.groupby('year')['opti_price'].mean()
 
 # Linear regression for predicted revenue
 slope_revenue, intercept_revenue, _, _, _ = linregress(yearly_predicted_revenue.index, yearly_predicted_revenue)

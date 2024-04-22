@@ -87,7 +87,7 @@ plt.scatter(yearly_predicted_revenue.index, yearly_predicted_revenue, marker='x'
 plt.plot([next_year], [future_revenue_prediction], marker='o', markersize=8, label='Next Year Prediction')
 plt.xlabel('Year')
 plt.ylabel('Revenue')
-plt.title(f'Linear Regression for Predicted Revenue Over Time - Department {selected_dept}')
+plt.title(f'Linear Regression for Predicted Revenue Over Time - Department {selected_department}')
 plt.legend()
 plt.grid(True)
 
@@ -98,7 +98,7 @@ plt.scatter(yearly_optimal_price.index, yearly_optimal_price, marker='x', label=
 plt.plot([next_year], [future_price_prediction], marker='o', markersize=8, label='Next Year Prediction')
 plt.xlabel('Year')
 plt.ylabel('Price')
-plt.title(f'Linear Regression for Optimal Price Over Time - Department {selected_dept}')
+plt.title(f'Linear Regression for Optimal Price Over Time - Department {selected_department}')
 plt.legend()
 plt.grid(True)
 

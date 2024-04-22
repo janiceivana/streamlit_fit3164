@@ -60,13 +60,27 @@ with st.sidebar:
 #######################
 
 def vis_optimization(data):
-    # Create a line chart for the old data
-    fig = px.line(data, x='price', y='revenue', title='Data', color_discrete_map={'price': 'blue', 'opti_price': 'red'})
-    fig.add_scatter(x=data['opti_price'], y=data['optimized_revenue'], mode='lines', name='Optimized Data', line=dict(color='green'))
-
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+    
+    # Add traces for original data
+    fig.add_trace(
+        go.Scatter(x=data['price'], y=data['revenue'], mode='lines', name='Original Revenue'),
+        secondary_y=False,
+    )
+    
+    # Add traces for optimized data
+    fig.add_trace(
+        go.Scatter(x=data['opti_price'], y=data['optimized_revenue'], mode='lines', name='Optimized Revenue'),
+        secondary_y=True,
+    )
+    
+    # Update layout
+    fig.update_layout(title='Comparison of Original and Optimized Revenue',
+                      xaxis_title='Price', yaxis_title='Revenue',
+                      legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01))
+    
     # Display the plot using Streamlit
     st.plotly_chart(fig, use_container_width=True)
-
 
 #######################
 # Dashboard Main Panel

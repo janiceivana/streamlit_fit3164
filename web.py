@@ -99,6 +99,8 @@ with col[0]:
     st.markdown('#### Price Elasticity Model')
     
     vis_elasticity(selected_data)
-    st.text((selected_item_level['level'].unique()))
+    item_list = list(selected_item_level.drop_duplicates('price')['level'])[::-1]
+    st.text(item_list)
+
 
     

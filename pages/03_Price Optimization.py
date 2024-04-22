@@ -78,6 +78,24 @@ def vis_optimization_scatter(data):
     st.plotly_chart(fig, use_container_width=True)
 
 
+def vis_optimization_bar(data):
+    # Create a DataFrame for the bar chart
+    df = pd.DataFrame({
+        'Price Type': ['Original', 'Optimized'],
+        'Price': [data['price'].mean(), data['opti_price'].mean()],
+        'Revenue': [data['revenue'].mean(), data['optimized_revenue'].mean()]
+    })
+
+    # Create a bar chart for the original and optimized data
+    fig = px.bar(df, x='Price Type', y=['Revenue', 'Price'],
+                 title='Average Original vs. Optimized Revenue and Price',
+                 barmode='group',
+                 labels={'value': 'Average Value', 'variable': 'Metric'})
+
+    # Display the plot using Streamlit
+    st.plotly_chart(fig, use_container_width=True)
+
+
 #######################
 # Dashboard Main Panel
 col = st.columns((4, 4), gap='medium')
@@ -86,3 +104,4 @@ with col[0]:
     st.markdown('#### Price Optimization')
     
     vis_optimization_scatter(selected_data)
+    vis_optimization_bar(selected_data)

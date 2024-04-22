@@ -94,6 +94,6 @@ with col[0]:
     st.markdown('#### Price Elasticity Model')
     
     vis_elasticity(selected_data)
-    print(selected_data['level'])
+    st.text((selected_data['level']))
 
     

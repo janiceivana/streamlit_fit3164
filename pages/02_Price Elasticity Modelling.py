@@ -69,10 +69,9 @@ with st.sidebar:
     selected_data = selected_data[selected_data.state_id == selected_state]
 
     selected_year = st.selectbox('Select a year', year_list)
-    if selected_year.dtypes == 'int64':
+    if isinstance(selected_year, int):
         selected_data = selected_data[selected_data.year == selected_year]
-    else:
-        None
+
 
     # color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     # selected_color_theme = st.selectbox('Select a color theme', color_theme_list)

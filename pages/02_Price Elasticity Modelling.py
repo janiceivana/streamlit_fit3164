@@ -69,12 +69,6 @@ with st.sidebar:
     selected_state = st.selectbox('Select a state', ['Overall'] + state_list)
     selected_year = st.selectbox('Select a year', ['Overall'] + year_list)
 
-    if selected_state == 'Overall' and selected_year == 'Overall':
-        st.write("Please select a state or a year.")
-        st.stop()
-
-    selected_data = selected_data.copy()  # Use a copy to avoid modifying the original data
-
     if selected_state != 'Overall':
         selected_data = selected_data[selected_data.state_id == selected_state]
 

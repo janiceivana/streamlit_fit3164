@@ -55,6 +55,7 @@ with st.sidebar:
     
     year_list = list(calendar.year.unique())[::-1]
     year_list.append("Overall")
+    st.write(year_list.dtypes)
     state_list = list(h1_df.state_id.unique())[::-1]
 
     selected_department = st.selectbox('Select a deparment', dept_list)

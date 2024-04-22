@@ -79,6 +79,6 @@ def vis_elasticity(data):
 col = st.columns((4, 4), gap='medium')
 
 with col[0]:
-    st.markdown('#### Price Elasticity Model')
+    st.markdown('#### Price Optimization')
     
     vis_elasticity(selected_data)

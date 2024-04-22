@@ -98,11 +98,10 @@ def vis_optimization_bar(data):
 
 #######################
 # Dashboard Main Panel
+st.markdown('#### Price Optimization')
 col = st.columns((4, 4), gap='medium')
 
 with col[0]:
-    st.markdown('#### Price Optimization')
-    
     vis_optimization_scatter(selected_data)
 
 with col[1]:

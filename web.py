@@ -59,7 +59,7 @@ with st.sidebar:
     selected_department = st.selectbox('Select a deparment', dept_list)
     selected_data = department_data[selected_department]
 
-    item_list = list(selected_data.item_id.unique())[::-1]
+    item_list = list(selected_data.item_id.unique('price'))[::-1]
 
     selected_item= st.selectbox('Select a deparment', item_list)
     selected_item_level = selected_data[selected_data.item_id == selected_item ]

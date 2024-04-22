@@ -7,8 +7,8 @@ import altair as alt
 #######################
 # Page configuration
 st.set_page_config(
-    page_title="P5: Price Optimization",
-    page_icon="💵",
+    page_title="P5: Forecasting",
+    page_icon="📈",
     layout="wide",
     initial_sidebar_state="expanded")
 
@@ -16,7 +16,7 @@ alt.themes.enable("dark")
 
 #######################
 with st.sidebar:
-    st.title('💵 P5: Price Optimization')
+    st.title('📈 P5: Forecasting')
     
     # year_list = list(calendar.year.unique())[::-1]
     # state_list = list(h1_df.state_id.unique())[::-1]

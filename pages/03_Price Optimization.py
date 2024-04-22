@@ -60,7 +60,7 @@ with st.sidebar:
 
 #######################
 
-def vis_elasticity(data):
+def vis_optimization(data):
     
     # Create a scatter plot
     fig, ax = plt.subplots()
@@ -81,4 +81,4 @@ col = st.columns((4, 4), gap='medium')
 with col[0]:
     st.markdown('#### Price Optimization')
     
-    vis_elasticity(selected_data)
+    vis_optimization(selected_data)

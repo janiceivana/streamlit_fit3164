@@ -104,4 +104,6 @@ with col[0]:
     st.markdown('#### Price Optimization')
     
     vis_optimization_scatter(selected_data)
+
+with col[1]:
     vis_optimization_bar(selected_data)

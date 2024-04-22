@@ -61,18 +61,15 @@ with st.sidebar:
     selected_data = selected_data[selected_data.year == selected_year]
 
 #######################
-def vis_optimization_scatter(data):
-    # Create a scatter plot for the original and optimized data
-    fig = px.scatter(data, x='price', y='revenue', title='Original vs. Optimized Revenue',
-                     labels={'price': 'Price', 'revenue': 'Revenue'},
-                     color_discrete_map={'price': 'blue', 'opti_price': 'red'},
-                     opacity=0.7,
-                     symbol_sequence=['circle', 'x'],
-                     symbol_map={'price': 'circle', 'opti_price': 'x'})
+def vis_optimization_bar(data):
+    # Create a bar chart for the original and optimized data
+    fig = px.bar(data, x=['price', 'opti_price'], y=['revenue', 'optimized_revenue'],
+                 title='Original vs. Optimized Revenue', barmode='group',
+                 labels={'value': 'Revenue', 'variable': 'Price Type'},
+                 color_discrete_map={'price': 'blue', 'opti_price': 'red'})
     
     # Display the plot using Streamlit
     st.plotly_chart(fig, use_container_width=True)
-
 
 #######################
 # Dashboard Main Panel
@@ -81,4 +78,4 @@ col = st.columns((4, 4), gap='medium')
 with col[0]:
     st.markdown('#### Price Optimization')
     
-    vis_optimization_scatter(selected_data)
+    vis_optimization_bar(selected_data)

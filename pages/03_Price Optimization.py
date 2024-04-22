@@ -3,7 +3,6 @@
 import streamlit as st
 import altair as alt
 import pandas as pd  
-import matplotlib.pylab as plt   
 import plotly.express as px
 
 #######################
@@ -63,12 +62,10 @@ with st.sidebar:
 def vis_optimization(data):
 
     # Create a line chart for the old data
-    fig = px.line(data, x=[data.opti_price, data.price], y=[data.revenue, data.optimized_revenue], title='Data')
+    fig = px.line(data, x=[data.price,data.opti_price], y=[data.revenue, data.optimized_revenue], title='Data')
 
     # Display the plots side by side using Streamlit
     st.plotly_chart(fig, use_container_width=True)
-
-
 
 #######################
 # Dashboard Main Panel

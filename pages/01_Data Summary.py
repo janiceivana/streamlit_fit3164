@@ -7,6 +7,16 @@ import altair as alt
 import pandas as pd  
 
 #######################
+# Page configuration
+st.set_page_config(
+    page_title="P5: Data Summary",
+    page_icon="📋",
+    layout="wide",
+    initial_sidebar_state="expanded")
+
+alt.themes.enable("dark")
+
+#######################
 # Load data
 calendar = pd.read_csv("calendar.csv")
 h1_df = pd.read_csv('h1_df.csv')

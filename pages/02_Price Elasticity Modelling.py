@@ -10,8 +10,8 @@ import matplotlib.pylab as plt
 #######################
 # Page configuration
 st.set_page_config(
-    page_title="P5: Pricing Optimization and Analysis Dashboard",
-    page_icon="🤖",
+    page_title="P5: Price Elasticity Modelling",
+    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded")
 

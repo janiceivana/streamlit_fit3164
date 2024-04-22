@@ -70,8 +70,6 @@ with st.sidebar:
     selected_year = st.selectbox('Select a year', year_list)
     selected_data = selected_data[selected_data.year == selected_year]
 
-    # df_selected_year_sorted = df_selected_year.sort_values(by="population", ascending=False)
-
     # color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
     # selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
 
@@ -84,7 +82,7 @@ def vis_elasticity(data):
     ax.scatter(data['price_change'], data['sale_change'])
     ax.set_title('Scatter Plot of Price Change% vs Sale Change%')
     ax.set_xlabel('Price Change%')
-    ax.set_ylabel('Sale Change')
+    ax.set_ylabel('Sale Change%')
     ax.grid(True)
 
     # Display the plot using Streamlit
@@ -99,7 +97,6 @@ with col[0]:
     st.markdown('#### Price Elasticity Model')
     
     vis_elasticity(selected_data)
-    st.text(round(abs(selected_data.price_change)).unique()*100)
 
 
 

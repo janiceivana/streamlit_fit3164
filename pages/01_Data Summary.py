@@ -32,4 +32,8 @@ department_data = {
 selected_department = st.selectbox('Select a deparment', dept_list)
 selected_data = department_data[selected_department]
 
+st.header("Dataframe")
 st.write(selected_data)
+
+st.header("Statistic Summary")
+st.write(selected_data.describe())

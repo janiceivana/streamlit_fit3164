@@ -56,6 +56,7 @@ with st.sidebar:
     year_list = list(calendar.year.unique())[::-1]
     year_list.append("Overall")
     state_list = list(h1_df.state_id.unique())[::-1]
+    state_list.append("Overall")
 
     selected_department = st.selectbox('Select a deparment', dept_list)
     selected_data = department_data[selected_department]
@@ -66,7 +67,10 @@ with st.sidebar:
     # selected_item_level = selected_data[selected_data.item_id == selected_item]
 
     selected_state = st.selectbox('Select a state', state_list)
-    selected_data = selected_data[selected_data.state_id == selected_state]
+    if (selected_state == 'Overall'):
+        None
+    else:    
+        selected_data = selected_data[selected_data.state_id == selected_state]
 
     selected_year = st.selectbox('Select a year', year_list)
     if (selected_year == 'Overall'):

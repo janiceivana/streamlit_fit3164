@@ -4,7 +4,7 @@ import streamlit as st
 import altair as alt
 import pandas as pd  
 import matplotlib.pylab as plt   
-# import plotly.express as px
+import plotly.express as px
 
 #######################
 # Page configuration
@@ -61,17 +61,13 @@ with st.sidebar:
 #######################
 
 def vis_optimization(data):
-    
-    # Create a scatter plot
-    fig, ax = plt.show()
-    ax.scatter(data['opti_price'], data['optimized_revenue'])
-    ax.set_title('Scatter Plot of Price and Revenu')
-    ax.set_xlabel('Price')
-    ax.set_ylabel('Revenue')
-    ax.grid(True)
 
-    # Display the plot using Streamlit
-    st.pyplot(fig)
+    # Create a line chart for the old data
+    fig = px.line(data, x=[data.opti_price, data.price], y=[data.revenue, data.optimized_revenue], title='Data')
+
+    # Display the plots side by side using Streamlit
+    st.plotly_chart(fig, use_container_width=True)
+
 
 
 #######################

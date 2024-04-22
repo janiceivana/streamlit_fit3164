@@ -81,4 +81,4 @@ col = st.columns((4, 4), gap='medium')
 with col[0]:
     st.markdown('#### Price Optimization')
     
-    vis_optimization(selected_data)
+    vis_optimization_scatter(selected_data)

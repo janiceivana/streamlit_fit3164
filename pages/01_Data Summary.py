@@ -43,7 +43,7 @@ department_data = {
 
 # Sidebar
 with st.sidebar:
-    st.title('📊 P5: Price Elasticity Modelling')
+    st.title('📋 P5: Data Summary')
 
     selected_department = st.selectbox('Select a deparment', dept_list)
     selected_data = department_data[selected_department]

@@ -16,7 +16,7 @@ alt.themes.enable("dark")
 
 #######################
 with st.sidebar:
-    st.title('📊 P5: Price Elasticity Modelling')
+    st.title('📊 P5: Price Iptimization')
     
     # year_list = list(calendar.year.unique())[::-1]
     # state_list = list(h1_df.state_id.unique())[::-1]

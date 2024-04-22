@@ -62,13 +62,13 @@ with st.sidebar:
 
 #######################
 def vis_optimization_scatter(data):
-    # Create a scatter plot for the original and optimized data
-    fig = px.scatter(data, x=data['price'], y=data['revenue'], title='Original vs. Optimized Revenue',
-                     labels={'x': 'Price', 'y': 'Revenue'},
+    # Create a scatter plot for the original and optimized data with trendline
+    fig = px.scatter(data, x='price', y='revenue', title='Original vs. Optimized Revenue',
+                     labels={'price': 'Price', 'revenue': 'Revenue'},
                      color_discrete_map={'price': 'blue'},
                      opacity=0.7,
-                     symbol_map={'price': 'circle'})
-
+                     trendline='ols')  # Add Ordinary Least Squares trendline
+    
     # Add optimized data as separate markers
     fig.add_trace(go.Scatter(x=data['opti_price'], y=data['optimized_revenue'],
                              mode='markers', marker_symbol='x', marker_color='red',
@@ -78,19 +78,20 @@ def vis_optimization_scatter(data):
     st.plotly_chart(fig, use_container_width=True)
 
 
+
 def vis_optimization_bar(data):
     # Create a DataFrame for the bar chart
     df = pd.DataFrame({
         'Price Type': ['Original', 'Optimized'],
-        'Price': [data['price'].mean(), data['opti_price'].mean()],
-        'Revenue': [data['revenue'].mean(), data['optimized_revenue'].mean()]
+        'Price': [data['price'].sum(), data['opti_price'].sum()],
+        'Revenue': [data['revenue'].sum(), data['optimized_revenue'].sum()]
     })
 
     # Create a bar chart for the original and optimized data
     fig = px.bar(df, x='Price Type', y=['Revenue', 'Price'],
-                 title='Average Original vs. Optimized Revenue and Price',
+                 title='Total Original vs. Optimized Revenue and Price',
                  barmode='group',
-                 labels={'value': 'Average Value', 'variable': 'Metric'})
+                 labels={'value': 'Total Value', 'variable': 'Metric'})
 
     # Display the plot using Streamlit
     st.plotly_chart(fig, use_container_width=True)

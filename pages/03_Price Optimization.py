@@ -80,11 +80,6 @@ def vis_optimization_scatter(data):
 
 
 def vis_optimization_scatter_OLS(data):
-    # Calculate OLS trendlines
-    z_orig = np.polyfit(data['price'], data['revenue'], 1)
-    p_orig = np.poly1d(z_orig)
-    trend_orig = p_orig(data['price'])
-
     z_opti = np.polyfit(data['opti_price'], data['optimized_revenue'], 1)
     p_opti = np.poly1d(z_opti)
     trend_opti = p_opti(data['opti_price'])
@@ -98,12 +93,10 @@ def vis_optimization_scatter_OLS(data):
     
     # Add optimized data as separate markers with trendline
     fig.add_trace(go.Scatter(x=data['opti_price'], y=data['optimized_revenue'],
-                             mode='markers', marker_symbol='x', marker_color='red',
+                             mode='markers', marker_symbol='o', marker_color='red',
                              name='Optimized Data'))
-    fig.add_trace(go.Scatter(x=data['price'], y=trend_orig, mode='lines', 
-                             line=dict(color='blue', width=2, dash='dash'), name='Original Trend'))
     fig.add_trace(go.Scatter(x=data['opti_price'], y=trend_opti, mode='lines', 
-                             line=dict(color='red', width=2, dash='dash'), name='Optimized Trend'))
+                             line=dict(color='red', width=2), name='Optimized Trend'))
 
     # Display the plot using Streamlit
     st.plotly_chart(fig, use_container_width=True)

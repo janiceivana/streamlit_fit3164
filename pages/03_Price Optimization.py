@@ -64,7 +64,7 @@ def vis_optimization(data):
     
     # Create a scatter plot
     fig, ax = plt.subplots()
-    ax.scatter(data['optimized_price'], data['optimized_revenue'])
+    ax.scatter(data['opti_price'], data['optimized_revenue'])
     ax.set_title('Scatter Plot of Price and Revenu')
     ax.set_xlabel('Price')
     ax.set_ylabel('Revenue')

@@ -6,6 +6,7 @@ import pandas as pd
 import plotly.express as px
 from plotly.subplots import make_subplots
 from plotly import graph_objects as go
+import numpy as np
 
 
 #######################
@@ -78,6 +79,36 @@ def vis_optimization_scatter(data):
     st.plotly_chart(fig, use_container_width=True)
 
 
+def vis_optimization_scatter_OLS(data):
+    # Calculate OLS trendlines
+    z_orig = np.polyfit(data['price'], data['revenue'], 1)
+    p_orig = np.poly1d(z_orig)
+    trend_orig = p_orig(data['price'])
+
+    z_opti = np.polyfit(data['opti_price'], data['optimized_revenue'], 1)
+    p_opti = np.poly1d(z_opti)
+    trend_opti = p_opti(data['opti_price'])
+
+    # Create a scatter plot for the original and optimized data with trendlines
+    fig = px.scatter(data, x='price', y='revenue', title='Original vs. Optimized Revenue',
+                     labels={'price': 'Price', 'revenue': 'Revenue'},
+                     color_discrete_map={'price': 'blue'},
+                     opacity=0.7,
+                     trendline='ols')  # Add Ordinary Least Squares trendline
+    
+    # Add optimized data as separate markers with trendline
+    fig.add_trace(go.Scatter(x=data['opti_price'], y=data['optimized_revenue'],
+                             mode='markers', marker_symbol='x', marker_color='red',
+                             name='Optimized Data'))
+    fig.add_trace(go.Scatter(x=data['price'], y=trend_orig, mode='lines', 
+                             line=dict(color='blue', width=2, dash='dash'), name='Original Trend'))
+    fig.add_trace(go.Scatter(x=data['opti_price'], y=trend_opti, mode='lines', 
+                             line=dict(color='red', width=2, dash='dash'), name='Optimized Trend'))
+
+    # Display the plot using Streamlit
+    st.plotly_chart(fig, use_container_width=True)
+
+
 
 def vis_optimization_bar(data):
     # Create a DataFrame for the bar chart
@@ -106,3 +137,4 @@ with col[0]:
     
     vis_optimization_scatter(selected_data)
     vis_optimization_bar(selected_data)
+    vis_optimization_scatter_OLS(selected_data)

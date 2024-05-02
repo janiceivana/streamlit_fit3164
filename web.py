@@ -9,6 +9,6 @@ st.write("Our Retail Product Pricing Optimization and Analytics project involved
 st.write("Start of by uploading your data to get your pricing analysis and strategies!")
 
 st.write("Meet our team members!")
-st.text("Janice Ivana - 32959796")
-st.text("Jiayi Wang (Wendy) - 31513638")
-st.text("Nguyen Pham (Chris) - 30750814")
+st.write("Janice Ivana - 32959796")
+st.write("Jiayi Wang (Wendy) - 31513638")
+st.write("Nguyen Pham (Chris) - 30750814")

@@ -83,3 +83,4 @@ if data_cvs is not None:
             db_conn.execute(insert_stmt2, parameters={"store_id" : records['store_id'] , "cookie" : controller.get("user-cred"), "price" : records['price'] , "date" : records['date'] , "dept_id" : records['dept_id'], "qty_sold" : records['qty_sold']})
 
     db_conn.commit()
+

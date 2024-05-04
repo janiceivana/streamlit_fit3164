@@ -19,7 +19,7 @@ alt.themes.enable("dark")
 #######################
 
 # Load data
-calendar = pd.readcsv("calendar.csv")
+calendar = pd.read_csv("calendar.csv")
 h1_df = pd.read_csv('h1_df.csv')
 h2_df= pd.read_csv('h2_df.csv')
 ho1_df = pd.read_csv('ho1_df.csv')

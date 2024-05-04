@@ -13,3 +13,6 @@ google-auth-httplib2
 google-auth-oauthlib
 sqlalchemy
 cloud-sql-python-connector
+streamlit_cookies_controller
+json
+os

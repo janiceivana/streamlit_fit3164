@@ -8,3 +8,8 @@ seaborn==0.11.2
 statsmodels==0.13.2
 streamlit==1.33.0
 plotly
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+sqlalchemy
+cloud-sql-python-connector

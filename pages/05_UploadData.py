@@ -11,6 +11,10 @@ import sqlalchemy
 from streamlit_cookies_controller import CookieController
 
 
+
+st.write(st.secrets["service_acc"])
+
+
 st.set_page_config('Cookie QuickStart', '🍪', layout='wide')
 
 controller = CookieController()

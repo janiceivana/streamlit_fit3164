@@ -6,9 +6,10 @@ import os
 
 from google.oauth2 import service_account
 import json
-from google.cloud.sql.connector import Connector
+from google.cloud.sql.connector import Connector, IPTypes
 import sqlalchemy
 from streamlit_cookies_controller import CookieController
+
 
 st.set_page_config('Cookie QuickStart', '🍪', layout='wide')
 
@@ -35,7 +36,7 @@ connector = Connector()
 # getconn now set to private IP
 def getconn():
     conn = connector.connect(
-      INSTANCE_CONNECTION_NAME, # <PROJECT-ID>:<REGION>:<INSTANCE-NAME>
+      "stellar-sunrise-421203:australia-southeast2:client", # <PROJECT-ID>:<REGION>:<INSTANCE-NAME>
       "pytds",
       user= 'sqlserver',
       password= 'eZZ+6]E9(xN*}7',
@@ -82,5 +83,3 @@ if data_cvs is not None:
             db_conn.execute(insert_stmt2, parameters={"store_id" : records['store_id'] , "cookie" : controller.get("user-cred"), "price" : records['price'] , "date" : records['date'] , "dept_id" : records['dept_id'], "qty_sold" : records['qty_sold']})
 
     db_conn.commit()
-
-

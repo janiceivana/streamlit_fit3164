@@ -27,7 +27,7 @@ controller.set('user-cred', 'testing')
 
 
 # Create credential for oauth flow
-info1= json.loads( st.secrets["key"])
+info1= json.loads( st.secrets)
 
 credentials = service_account.Credentials.from_service_account_info( info = info1
   , scopes=["https://www.googleapis.com/auth/sqlservice.admin"]

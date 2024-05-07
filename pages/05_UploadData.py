@@ -26,9 +26,8 @@ controller.set('user-cred', 'testing')
 # Create credential for oauth flow
 
 # Retrieve the JSON key file path from Streamlit Secrets
-key_path = st.secrets["service_acc"]
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
-credentials, project_id = google.auth.default()
+credentials = service_account.Credentials.from_service_account_info(**st.secrets.service_acc)
+
 
 
 

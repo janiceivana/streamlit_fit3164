@@ -60,7 +60,7 @@ server = "34.129.166.10"
 database = "stellar-sunrise-421203:australia-southeast2:client"
 username = "sqlserver"
 password = "eZZ+6]E9(xN*}7"
-;
+
 '''
 cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};\
                       SERVER='+server+';\
@@ -111,7 +111,7 @@ if data_cvs is not None:
 
 
 
-    
+
 
 
             # inserting file into sqlserver

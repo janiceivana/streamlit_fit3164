@@ -54,8 +54,9 @@ pool = sqlalchemy.create_engine(
     creator=getconn,
 )
 
-conn = connector.connect()
+conn = connector.connect("stellar-sunrise-421203:australia-southeast2:client", "pyodbc" )
 
+server = "34.129.166.10"
 server = "34.129.166.10"
 database = "stellar-sunrise-421203:australia-southeast2:client"
 username = "sqlserver"

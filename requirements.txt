@@ -15,3 +15,4 @@ sqlalchemy
 cloud-sql-python-connector
 streamlit_cookies_controller
 python-tds
+pyodbc

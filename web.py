@@ -1,7 +1,7 @@
 #######################
 # Import libraries
 import streamlit as st
-from streamlit_cookies_controller import CookieController
+
 
 st.header("Welcome to FIT3164_DS05 Webpage!")
 
@@ -22,10 +22,4 @@ with col3:
     st.write("Nguyen Pham (Chris) - 30750814")
 
 
-st.set_page_config('Cookie QuickStart', '🍪', layout='wide')
-
-controller = CookieController()
-
-# Set a cookie
-controller.set('user-cred', 'testing')
 

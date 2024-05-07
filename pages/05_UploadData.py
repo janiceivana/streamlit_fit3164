@@ -50,7 +50,7 @@ def getconn():
 
 # create connection pool
 pool = sqlalchemy.create_engine(
-    "mssql+pytds://",
+    "mssql+pyodbc://",
     creator=getconn,
 )
 

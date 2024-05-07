@@ -60,13 +60,13 @@ pool = sqlalchemy.create_engine(
 def init_connection():
     return pyodbc.connect(
         "DRIVER={ODBC Driver 17 for SQL Server};SERVER="
-        + st.secrets.db.server
+        + "34.129.166.10"
         + ";DATABASE="
-        + st.secrets.db.database
+        + "stellar-sunrise-421203:australia-southeast2:client"
         + ";UID="
-        + st.secrets.db.username
+        + "sqlserver"
         + ";PWD="
-        + st.secrets.db.password
+        + "eZZ+6]E9(xN*}7"
     )
 
 
@@ -85,6 +85,8 @@ def run_query(query):
 
 
 data_cvs = st.file_uploader("choose a csv file")
+
+
 if data_cvs is not None:
     # read file using pandas
     df = pd.read_csv(data_cvs.path)

@@ -8,19 +8,12 @@ from google.oauth2 import service_account
 import json
 from google.cloud.sql.connector import Connector, IPTypes
 import sqlalchemy
-from streamlit_cookies_controller import CookieController
 
 
 
 st.write(st.secrets.key)
 
 
-st.set_page_config('Cookie QuickStart', '🍪', layout='wide')
-
-controller = CookieController()
-
-# Set a cookie
-controller.set('user-cred', 'testing')
 
 
 

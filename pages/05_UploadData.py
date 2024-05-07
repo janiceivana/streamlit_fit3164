@@ -33,8 +33,7 @@ credentials = service_account.Credentials.from_service_account_info(st.secrets.s
 # initialize connector
 connector = Connector(
     ip_type="public",  # can also be "private" or "psc"
-    enable_iam_auth=False,
-    timeout=30,
+    enable_iam_auth=True,
     credentials= credentials # google.auth.credentials.Credentials
 )
 
@@ -48,6 +47,7 @@ def getconn():
 
       db='34.129.166.10',
       ip_type= IPTypes.PRIVATE
+
     )
     return conn
 
@@ -59,7 +59,7 @@ pool = sqlalchemy.create_engine(
 
 conn = connector.connect("stellar-sunrise-421203:australia-southeast2:client", "pytds" )
 
-server = "34.129.166.10"
+
 server = "34.129.166.10"
 database = "stellar-sunrise-421203:australia-southeast2:client"
 username = "sqlserver"

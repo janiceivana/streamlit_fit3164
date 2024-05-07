@@ -60,13 +60,13 @@ pool = sqlalchemy.create_engine(
 def init_connection():
     return pyodbc.connect(
         "DRIVER={ODBC Driver 17 for SQL Server};SERVER="
-        + st.secrets["server"]
+        + st.secrets.db.server
         + ";DATABASE="
-        + st.secrets["database"]
+        + st.secrets.db.database
         + ";UID="
-        + st.secrets["username"]
+        + st.secrets.db.username
         + ";PWD="
-        + st.secrets["password"]
+        + st.secrets.db.password
     )
 
 

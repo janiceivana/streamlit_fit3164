@@ -39,7 +39,7 @@ connector = Connector()
 def getconn():
     conn = connector.connect(
       "stellar-sunrise-421203:australia-southeast2:client", # <PROJECT-ID>:<REGION>:<INSTANCE-NAME>
-      "pytds",
+      "pyodbc",
       user= 'sqlserver',
       password= 'eZZ+6]E9(xN*}7',
 

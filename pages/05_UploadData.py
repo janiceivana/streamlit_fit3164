@@ -11,7 +11,7 @@ import sqlalchemy
 from streamlit_cookies_controller import CookieController
 
 
-st.write(st.secrets.key)
+
 
 
 
@@ -25,7 +25,7 @@ controller.set('user-cred', 'testing')
 
 
 # Create credential for oauth flow
-info1= json.loads(st.secrets.key)
+info1= json.loads(st.secrets["service_acc"])
 
 credentials = service_account.Credentials.from_service_account_info( info = info1
   , scopes=["https://www.googleapis.com/auth/sqlservice.admin"]

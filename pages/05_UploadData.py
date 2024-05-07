@@ -5,6 +5,8 @@ import os
 # Upload file command for use to upload there file
 import sqlalchemy
 from google.oauth2 import service_account
+import google.auth
+
 import json
 from google.cloud.sql.connector import Connector, IPTypes
 import pyodbc
@@ -23,11 +25,10 @@ controller.set('user-cred', 'testing')
 
 # Create credential for oauth flow
 
-
-credentials = service_account.Credentials.from_service_account_info( st.secrets.service_acc
-  , scopes=["https://www.googleapis.com/auth/sqlservice.admin"]
- )
-
+# Retrieve the JSON key file path from Streamlit Secrets
+key_path = st.secrets["service_acc"]
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key_path
+credentials, project_id = google.auth.default()
 
 
 

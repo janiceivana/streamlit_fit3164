@@ -55,22 +55,17 @@ pool = sqlalchemy.create_engine(
 )
 '''
 
+server = "34.129.166.10"
+database = "stellar-sunrise-421203:australia-southeast2:client"
+username = "sqlserver"
+password = "eZZ+6]E9(xN*}7"
 
-@st.cache_resource
-def init_connection():
-    return pyodbc.connect(
-        "DRIVER={ODBC Driver 17 for SQL Server};SERVER="
-        + "34.129.166.10"
-        + ";DATABASE="
-        + "stellar-sunrise-421203:australia-southeast2:client"
-        + ";UID="
-        + "sqlserver"
-        + ";PWD="
-        + "eZZ+6]E9(xN*}7"
-    )
+cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};\
+                      SERVER='+server+';\
+                      DATABASE='+database+';\
+                      UID='+username+';\
+                      PWD='+ password)
 
-
-conn = init_connection()
 
 
 # streamlit code to upload file and insert them into database
@@ -78,7 +73,7 @@ conn = init_connection()
 
 @st.cache_data(ttl=600)
 def run_query(query):
-    with conn.cursor() as cur:
+    with cnxn.cursor() as cur:
         cur.execute(query)
         return cur.fetchall()
 
@@ -102,13 +97,10 @@ if data_cvs is not None:
 
         insert_stmt2= 'INSERT INTO SALE (store_id, cookie, price, date,  item_id, dept_id, qty_sold,) VALUES (?,?,?,?,?,?,?)'
 
-        for records in df:
-            conn.execute(insert_stmt1,
-                         [records['store_id'], controller.get("user-cred")])
-            conn.execute(insert_stmt2,
-                          [records['store_id'], controller.get("user-cred"),
-                                     records['price'],records['date'], records['item_id'], records['dept_id'],
-                                     records['qty_sold']])
+
+        cnxn.execute(insert_stmt1, {"store_id" : records['store_id'], "cookie" :controller.get("user-cred")})
+        cnxn.execute(insert_stmt2, {"store_id" : records['store_id'] , "cookie" : controller.get("user-cred"), "price" : records['price'] , "date" : records['date'] , "item_id": records["item_id"] ,"dept_id" : records['dept_id'], "qty_sold" : records['qty_sold']})
+
 
 
 

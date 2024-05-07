@@ -10,18 +10,18 @@ import google.auth
 import json
 from google.cloud.sql.connector import Connector, IPTypes
 import pyodbc
-from streamlit_cookies_controller import CookieController
+#from streamlit_cookies_controller import CookieController
 
 
 
 
 
-
+'''
 controller = CookieController()
 
 # Set a cookie
 controller.set('user-cred', 'testing')
-
+'''
 
 
 credentials = service_account.Credentials.from_service_account_info(st.secrets.service_acc, scopes=[  "https://www.googleapis.com/auth/sqlservice.admin"]                           )
@@ -31,7 +31,12 @@ credentials = service_account.Credentials.from_service_account_info(st.secrets.s
 
 
 # initialize connector
-connector = Connector()
+connector = Connector(
+    ip_type="public",  # can also be "private" or "psc"
+    enable_iam_auth=False,
+    timeout=30,
+    credentials= credentials # google.auth.credentials.Credentials
+)
 
 # getconn now set to private IP
 def getconn():
@@ -84,7 +89,7 @@ def run_query(query):
 
 data_cvs = st.file_uploader("choose a csv file")
 
-
+'''
 if data_cvs is not None:
     # read file using pandas
     df = pd.read_csv(data_cvs.path)
@@ -95,7 +100,8 @@ if data_cvs is not None:
     with pool.connect() as db_conn:
 
         for records in df:
-            '''
+            
+            
             insert_stmt1= 'INSERT INTO STORE (store_id, cookie) VALUES (?, ?)'
     
     
@@ -104,7 +110,7 @@ if data_cvs is not None:
     
             cnxn.execute(insert_stmt1, {"store_id" : records['store_id'], "cookie" :controller.get("user-cred")})
             cnxn.execute(insert_stmt2, {"store_id" : records['store_id'] , "cookie" : controller.get("user-cred"), "price" : records['price'] , "date" : records['date'] , "item_id": records["item_id"] ,"dept_id" : records['dept_id'], "qty_sold" : records['qty_sold']})
-            '''
+            
 
 
 
@@ -128,3 +134,4 @@ if data_cvs is not None:
             conn.execute (insert_stmt2, parameters={"store_id" : records['store_id'] , "cookie" : controller.get("user-cred"), "price" : records['price'] , "date" : records['date'] , "item_id": records["item_id"], "dept_id" : records['dept_id'], "qty_sold" : records['qty_sold']})
 
             db_conn.commit()
+'''

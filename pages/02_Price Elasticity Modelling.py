@@ -41,39 +41,21 @@ department_data = {
 
 }
 
-# st.write('Hello World')
-# name = st.text_input('Whats your name?')
-# st.write(sample)
-
-# if st.button("Click Me"):
-#     st.write(f"Hello `{name}`")
 
 dept_list = [ 'FOODS_3', 'FOODS_2', 'FOODS_1' , 'HOUSEHOLD_2', 'HOUSEHOLD_1', 'HOBBIES_2', 'HOBBIES_1']
 #######################
 # Sidebar
 with st.sidebar:
     st.title('📊 P5: Price Elasticity Modelling')
-    
-    year_list = list(calendar.year.unique())[::-1]
     state_list = list(h1_opti.state_id.unique())[::-1]
 
     selected_department = st.selectbox('Select a deparment', dept_list)
     selected_data = department_data[selected_department]
 
-    # item_list = list(selected_data.item_id.unique())[::-1]
-
-    # selected_item= st.selectbox('Select an Item', item_list)
-    # selected_item_level = selected_data[selected_data.item_id == selected_item]
-
     selected_state = st.selectbox('Select a state', ['Overall'] + state_list)
 
     if selected_state != 'Overall':
         selected_data = selected_data[selected_data.state_id == selected_state]
-
-
-
-    # color_theme_list = ['blues', 'cividis', 'greens', 'inferno', 'magma', 'plasma', 'reds', 'rainbow', 'turbo', 'viridis']
-    # selected_color_theme = st.selectbox('Select a color theme', color_theme_list)
 
 #######################
 

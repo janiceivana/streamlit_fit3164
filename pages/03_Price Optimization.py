@@ -55,11 +55,15 @@ with st.sidebar:
 
     item_list = list(selected_data.item_id.unique())[::-1]
 
-    selected_item = st.selectbox('Select an item', item_list)
-    selected_data = selected_data[selected_data.item_id == selected_item]
+    selected_item = st.selectbox('Select an item',  ['Overall'] + item_list)
 
-    selected_state = st.selectbox('Select a state', state_list)
-    selected_data = selected_data[selected_data.state_id == selected_state]
+    selected_state = st.selectbox('Select a state', ['Overall'] + state_list)
+
+    if selected_item != 'Overall':
+        selected_data = selected_data[selected_data.item_id == selected_item]
+
+    if selected_state != 'Overall':
+        selected_data = selected_data[selected_data.state_id == selected_state]
 
 # #######################
 # def vis_optimization_scatter(data):

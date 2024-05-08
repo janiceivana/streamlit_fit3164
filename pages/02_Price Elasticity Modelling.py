@@ -68,6 +68,12 @@ with st.sidebar:
 
 def vis_elasticity(data):
     
+    # Find the maximum value in the list
+    max_value = data['price_change'].max()
+
+    # Remove the maximum value from the list
+    data = data[data['price_change'] != max_value]
+    
     # Create a scatter plot
     fig, ax = plt.subplots()
     ax.scatter(data['price_change'], data['sale_change'])

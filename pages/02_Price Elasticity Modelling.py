@@ -62,6 +62,12 @@ with st.sidebar:
     if selected_state != 'Overall':
         selected_data = selected_data[selected_data.state_id == selected_state]
 
+    
+    disc_list = list(h1_opti['discount%'].unique())[::-1]
+    selected_disc = st.selectbox('Discount', disc_list)
+    selected_data = selected_data[selected_data['discount%'] == selected_disc]
+
+
 
 
 #######################
@@ -73,7 +79,7 @@ def vis_elasticity(data):
 
     # Remove the maximum value from the list
     data = data[data['price_change'] != max_value]
-    
+
     # Create a scatter plot
     fig, ax = plt.subplots()
     ax.scatter(data['price_change'], data['sale_change'])

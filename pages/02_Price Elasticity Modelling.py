@@ -41,8 +41,6 @@ department_data = {
 
 }
 
-
-dept_list = [ 'FOODS_3', 'FOODS_2', 'FOODS_1' , 'HOUSEHOLD_2', 'HOUSEHOLD_1', 'HOBBIES_2', 'HOBBIES_1']
 #######################
 # Sidebar
 with st.sidebar:

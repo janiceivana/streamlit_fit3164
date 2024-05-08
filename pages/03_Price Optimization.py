@@ -49,10 +49,11 @@ with st.sidebar:
     st.title('💵 P5: Price Optimization')
     
     state_list = list(h1_opti.state_id.unique())[::-1]
-    item_list = list(h1_opti.item_id.unique())[::-1]
 
     selected_department = st.selectbox('Select a deparment', dept_list)
     selected_data = department_data[selected_department]
+
+    item_list = list(selected_data.item_id.unique())[::-1]
 
     selected_item = st.selectbox('Select a deparment', item_list)
     selected_data = selected_data[selected_data.item_id == selected_item]

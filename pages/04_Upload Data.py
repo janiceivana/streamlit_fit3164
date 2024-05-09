@@ -40,10 +40,10 @@ if uploaded_file is not None:
         for i in range(len(df)):
             if df.loc[i,'store_id'] not in seen:
                 seen.append(df.loc[i, 'store_id'])
-                insert_stmt1 = 'INSERT INTO STORE (store_id, cookie) VALUES (?, ?)'
+                insert_stmt1 = 'INSERT INTO USER (store_id, cookie) VALUES (?, ?)'
                 cur.execute(insert_stmt1,  df.loc[i,'store_id'], controller.get("user-cred"))
                 conn.commit()
-            insert_stmt2 = 'INSERT INTO SALE (store_id, price, date,  item_id, dept_id, qty_sold, cost) VALUES (?,?,?,?,?,?,?,?)'
+            insert_stmt2 = 'INSERT INTO RECORD (store_id, price, date,  item_id, dept_id, qty_sold, cost) VALUES (?,?,?,?,?,?,?,?)'
             cur.execute(insert_stmt2,  df.loc[i,'store_id'], controller.get("user-cred"), df.loc[i,'price'], df.loc[i,'date'] , df.loc[i,'item_id'],df.loc[i,'dept_id'],  df.loc[i,'qty_sold'],df.loc[i,'cost'])
             conn.commit()
 

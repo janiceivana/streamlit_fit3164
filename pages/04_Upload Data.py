@@ -41,10 +41,10 @@ if uploaded_file is not None:
             if df.loc[i,'store_id'] not in seen:
                 seen.append(df.loc[i, 'store_id'])
                 insert_stmt1 = 'INSERT INTO STORE (store_id, cookie) VALUES (?, ?)'
-                cur.execute(insert_stmt1, {"store_id": df.loc[i,'store_id'], "cookie": controller.get("user-cred")})
+                cur.execute(insert_stmt1, {"store_id": df.loc[i,'store_id']}, {"cookie": controller.get("user-cred")})
                 conn.commit()
             insert_stmt2 = 'INSERT INTO SALE (store_id, price, date,  item_id, dept_id, qty_sold, cost) VALUES (?,?,?,?,?,?,?,?)'
-            cur.execute(insert_stmt2, {"store_id" : df.loc[i,'store_id'] , "cookie" : controller.get("user-cred"), "price" : df.loc[i,'price'] , "date" : df.loc[i,'date'] , "item_id":df.loc[i,'item_id'] ,"dept_id" : df.loc[i,'dept_id'], "qty_sold" : df.loc[i,'qty_sold'], "cost" : df.loc[i,'cost']})
+            cur.execute(insert_stmt2, {"store_id" : df.loc[i,'store_id']} , {"cookie" : controller.get("user-cred")}, {"price" : df.loc[i,'price']} , {"date" : df.loc[i,'date'] }, {"item_id":df.loc[i,'item_id']} ,{"dept_id" : df.loc[i,'dept_id']}, {"qty_sold" : df.loc[i,'qty_sold']},{ "cost" : df.loc[i,'cost']})
             conn.commit()
 
 

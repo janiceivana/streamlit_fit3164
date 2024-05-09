@@ -40,11 +40,11 @@ if data_cvs is not None:
         seen = []
         for records in df:
             if records['store_id'] not in seen:
-                seen.append( records['store_id'])
+                seen.append(records['store_id'])
                 insert_stmt1 = 'INSERT INTO STORE (store_id, cookie) VALUES (?, ?)'
                 cur.execute(insert_stmt1, {"store_id": records['store_id'], "cookie": controller.get("user-cred")})
 
-            insert_stmt2= 'INSERT INTO SALE (store_id, price, date,  item_id, dept_id, qty_sold,) VALUES (?,?,?,?,?,?,?)'
+            insert_stmt2 = 'INSERT INTO SALE (store_id, price, date,  item_id, dept_id, qty_sold,) VALUES (?,?,?,?,?,?,?)'
 
     
 

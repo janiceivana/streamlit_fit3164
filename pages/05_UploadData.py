@@ -15,6 +15,25 @@ import pyodbc
 
 
 
+# Initialize connection.
+# Uses st.cache_resource to only run once.
+@st.cache_resource
+def init_connection():
+    return pyodbc.connect(
+        "DRIVER={ODBC Driver 18 for SQL Server};SERVER="
+        + st.secrets["server"]
+        + ";DATABASE="
+        + st.secrets["database"]
+        + ";UID="
+        + st.secrets["username"]
+        + ";PWD="
+        + st.secrets["password"]
+        + ";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"
+    )
+
+conn = init_connection()
+
+
 
 '''
 controller = CookieController()
@@ -24,66 +43,8 @@ controller.set('user-cred', 'testing')
 '''
 
 
-credentials = service_account.Credentials.from_service_account_info(st.secrets.service_acc, scopes=[  "https://www.googleapis.com/auth/sqlservice.admin"]                           )
 
 
-
-
-
-# initialize connector
-connector = Connector(
-    ip_type="public",  # can also be "private" or "psc"
-    enable_iam_auth=True,
-    credentials= credentials # google.auth.credentials.Credentials
-)
-
-# getconn now set to private IP
-def getconn():
-    conn = connector.connect(
-      "stellar-sunrise-421203:australia-southeast2:client", # <PROJECT-ID>:<REGION>:<INSTANCE-NAME>
-      "pytds",
-      user= 'sqlserver',
-      password= 'eZZ+6]E9(xN*}7',
-
-      db='34.129.166.10',
-      ip_type= IPTypes.PRIVATE
-
-    )
-    return conn
-
-# create connection pool
-pool = sqlalchemy.create_engine(
-    "mssql+pyodbc://",
-    creator=getconn,
-)
-
-conn = connector.connect("stellar-sunrise-421203:australia-southeast2:client", "pytds" )
-
-
-server = "34.129.166.10"
-database = "stellar-sunrise-421203:australia-southeast2:client"
-username = "sqlserver"
-password = "eZZ+6]E9(xN*}7"
-
-'''
-cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};\
-                      SERVER='+server+';\
-                      DATABASE='+database+';\
-                      UID='+username+';\
-                      PWD='+ password)
-
-
-
-# streamlit code to upload file and insert them into database
-
-
-@st.cache_data(ttl=600)
-def run_query(query):
-    with cnxn.cursor() as cur:
-        cur.execute(query)
-        return cur.fetchall()
-
-'''
 
 
 

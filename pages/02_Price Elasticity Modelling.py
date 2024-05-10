@@ -5,24 +5,6 @@ import altair as alt
 import pandas as pd  
 import matplotlib.pylab as plt   
 
-import importlib.util
-
-# Specify the path to the module
-module_path = '01_Get Started.py'
-
-# Remove spaces from the module name
-module_name = module_path.replace(' ', '_').replace('.py', '')
-
-# Load the module dynamically
-spec = importlib.util.spec_from_file_location(module_name, module_path)
-module = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(module)
-
-# Call the main function from the module
-data = module.main()
-
-st.write(data)
-
 #######################
 # Page configuration
 st.set_page_config(
@@ -35,13 +17,18 @@ alt.themes.enable("dark")
 
 #######################
 # Load data
-h1_opti = pd.read_csv('h1_opti.csv')
-h2_opti= pd.read_csv('h2_opti.csv')
-ho1_opti = pd.read_csv('ho1_opti.csv')
-ho2_opti = pd.read_csv('ho2_opti.csv')
-f1_opti = pd.read_csv('f1_opti.csv')
-f2_opti = pd.read_csv('f2_opti.csv')
-f3_opti = pd.read_csv('f3_opti.csv')
+
+session_state = st.session_state
+if 'dataframes' not in session_state:
+    session_state.dataframes = {}
+
+uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
+if st.button("Load Data"):
+    for uploaded_file in uploaded_files:
+        file_name = uploaded_file.name.replace(".csv", "").replace(" ", "_")
+        session_state.dataframes[file_name] = pd.read_csv(uploaded_file)
+    st.success("Data loaded successfully!")
+
 
 #######################
 dept_list = [ 'FOODS_3', 'FOODS_2', 'FOODS_1' , 'HOUSEHOLD_2', 'HOUSEHOLD_1', 'HOBBIES_2', 'HOBBIES_1']

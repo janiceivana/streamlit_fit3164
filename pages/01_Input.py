@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-def main():
+def upload():
     st.title("Data Visualization App")
 
     session_state = st.session_state
@@ -17,5 +17,3 @@ def main():
 
     return session_state.dataframes
 
-if __name__ == "__main__":
-    main()

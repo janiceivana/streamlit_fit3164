@@ -89,12 +89,13 @@ def vis_elasticity(data):
     # Display the plot using Streamlit
     st.pyplot(fig)
 
-    elasticity = data['elasticity'].median()
+    elasticity = data['elasticity'].mean()
     st.write(f'The elasticity: {elasticity}')
 
     st.subheader("Main Findings")
-    st.write("As the discount increase from 0% to 10%, we can observe that the price elasticity goes up, this means that")
+    st.write("As the discount increase from 0% to 10%, we can observe that the price elasticity goes up, where higher price elasticity means that consumers are more responsive to changes in price. Specifically, it indicates that a small change in price results in a relatively large change in quantity demanded, where customers buy more when prices are lower due to discounts. However, when the discount started to rise up from 10% to 30%, the elasticity goes down by a little. At very high discount levels, the relationship can become more complex. There's a point where further increases in discount may not lead to proportionate increases in quantity demanded. This could be due to various factors such as perceived value, consumer expectations, or even signaling effects where excessively low prices might raise concerns about product quality. ")
 
+    st.write("Finding the optimal discount level and optimal sell price involves balancing price elasticity with profitability. Offering very high discounts might attract more customers, but if the discounts erode profitability too much, it may not be sustainable in the long run.")
 #######################
 # Dashboard Main Panel
 col = st.columns((4, 4), gap='medium')

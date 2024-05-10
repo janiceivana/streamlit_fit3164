@@ -17,8 +17,7 @@ col1, col2, col3 = st.columns([1,1,1])
 with col1:
     st.write("Janice Ivana - 32959796")
     st.image("IMG-20240108-WA0049.jpg")
-    
-    
+
 with col2:
     st.write("Jiayi Wang (Wendy) - 31513638")
     st.image("Image (1).jpeg")

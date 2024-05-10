@@ -81,7 +81,7 @@ def vis_elasticity(data):
     # Create a scatter plot
     fig, ax = plt.subplots(figsize=(3,3))
     ax.scatter(data['price_change'], data['sale_change'])
-    ax.set_title('Scatter Plot of Price Change% vs Sale Change%')
+    ax.set_title('Price Elasticity Model')
     ax.set_xlabel('Price Change%')
     ax.set_ylabel('Sale Change%')
     ax.grid(True)
@@ -116,7 +116,6 @@ def vis_elasticity(data):
 
 #######################
 
-st.markdown('#### Price Elasticity Model')
 
 vis_elasticity(selected_data)
 

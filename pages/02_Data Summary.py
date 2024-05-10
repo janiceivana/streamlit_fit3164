@@ -63,11 +63,8 @@ def main():
     for uploaded_file in uploaded_files:
         file_name = uploaded_file.name.replace(".csv", "").replace(" ", "_")
         bytes_data = pd.read_csv(uploaded_file)
-        st.write(f"{file_name}:")
+        st.title(f"Data Summary: {file_name}")
         st.write(bytes_data)
-
-    st.title("Data Summary")
-
 
 
 if __name__ == "__main__":

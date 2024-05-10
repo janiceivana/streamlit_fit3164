@@ -19,4 +19,4 @@ pyodbc
 
 
 s3fs
-st-files-connection
+st_files_connection

@@ -18,47 +18,20 @@ alt.themes.enable("dark")
 
 #######################
 
-
 def main():
-    st.title("Data Modelling")
+    uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
+    for uploaded_file in uploaded_files:
+        file_name = uploaded_file.name.replace(".csv", "").replace(" ", "_")
+        bytes_data = pd.read_csv(uploaded_file)
+        st.title(f"Data Summary: {file_name}")
+        st.write(bytes_data)
 
-    # Access uploaded files from session state
-    session_state = st.session_state
-    if 'csv_files' in session_state:
-        for name, data in session_state.csv_files.items():
-            st.write(f"DataFrame Name: {name}")
-            st.write(pd.read_csv(data))
+        st.title(f"Statistic Summary: {file_name}")
+        st.write(bytes_data.describe())
+
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def main():
-#     uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
-#     for uploaded_file in uploaded_files:
-#         file_name = uploaded_file.name.replace(".csv", "").replace(" ", "_")
-#         bytes_data = pd.read_csv(uploaded_file)
-#         st.title(f"Data Summary: {file_name}")
-#         st.write(bytes_data)
-
-#         st.title(f"Statistic Summary: {file_name}")
-#         st.write(bytes_data.describe())
-
-
-# if __name__ == "__main__":
-#     main()
 
 
 # Load data

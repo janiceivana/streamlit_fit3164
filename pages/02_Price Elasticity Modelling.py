@@ -92,6 +92,17 @@ def vis_elasticity(data):
     elasticity = data['elasticity'].mean()
     st.write(f'The elasticity: {elasticity}')
 
+    if elasticity > 1:
+        st.write("Price Elasticity: Elastic Demand Curve")
+    elif elasticity < 1:
+        st.write("Price Elasticity: Inelastic Demand Curve")
+    elif elasticity == 1:
+        st.write("Price Elasticity: Unitary elastic Demand Curve")
+    elif elasticity == 0:
+        st.write("Price Elasticity: Perfectly inelastic Demand Curve")
+    else:
+        st.write("Price Elasticity: Perfectly elastic Demand Curve")
+
     st.subheader("Main Findings")
     st.write("The higher discount show an almost straight line going down, where the correlation between price and sales changes becomes more significant, and specifically both price and sales are negative correlated. As price goes down, and demand goes up which will increase the sale, vice versa. Although the higher the discount, and more significant the straight line forms from each point which means the curve become more steep which leads to more inelastic. This does not conclude that the higher the discount the better the sales will be (higher elasticity).")
 

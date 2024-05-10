@@ -18,6 +18,10 @@ alt.themes.enable("dark")
 
 #######################
 
+st.write("Hi, Welcome to your first step off this application, upload your files here to get your data checked and summarise")
+st.write("Feel free to upload your file more than 1, and make sure is in CSV!")
+st.write("Refer on your left hand side bar to get your elasticity reading and price optimization!")
+
 def main():
     uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
     for uploaded_file in uploaded_files:

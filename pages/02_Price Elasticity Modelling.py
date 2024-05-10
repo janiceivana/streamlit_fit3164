@@ -116,8 +116,13 @@ def vis_elasticity(data):
 
 #######################
 
+col = st.columns((4, 4), gap='medium')
 
-vis_elasticity(selected_data)
+with col[0]:
+    vis_elasticity(selected_data)
+
+st.write("The optimal price here is displayed on 'price' column, where the apporach here is calculating the cost and revenue in order to get the profit. From the profit, we can grab the price that maximize the profit based on the sell price, item id, and state")
+
 
 
 

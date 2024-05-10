@@ -89,6 +89,8 @@ def vis_elasticity(data):
     # Display the plot using Streamlit
     st.pyplot(fig)
 
+    elasticity = data['elasticity'].mean()
+    st.write(elasticity)
 
 #######################
 # Dashboard Main Panel

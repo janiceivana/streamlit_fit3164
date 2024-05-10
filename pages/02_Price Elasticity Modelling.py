@@ -7,9 +7,6 @@ import matplotlib.pylab as plt
 import streamlit as st
 from st_files_connection import FilesConnection
 
-conn = st.connection('s3', type=FilesConnection)
-df = conn.read("fit3164-ds05/f1_opti.csv", input_format="csv")
-
 #######################
 # Page configuration
 st.set_page_config(
@@ -29,6 +26,10 @@ ho2_opti = pd.read_csv('ho2_opti.csv')
 f1_opti = pd.read_csv('f1_opti.csv')
 f2_opti = pd.read_csv('f2_opti.csv')
 f3_opti = pd.read_csv('f3_opti.csv')
+
+conn = st.connection('s3', type=FilesConnection)
+df = conn.read("fit3164-ds05/f1_opti.csv", input_format="csv")
+
 
 #######################
 dept_list = [ 'FOODS_3', 'FOODS_2', 'FOODS_1' , 'HOUSEHOLD_2', 'HOUSEHOLD_1', 'HOBBIES_2', 'HOBBIES_1']

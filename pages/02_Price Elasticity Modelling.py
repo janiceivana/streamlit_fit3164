@@ -2,10 +2,26 @@
 # Import libraries
 import streamlit as st
 import altair as alt
-# import plotly.express as px
-
 import pandas as pd  
 import matplotlib.pylab as plt   
+
+import importlib.util
+
+# Specify the path to the module
+module_path = '01_Get Started.py'
+
+# Remove spaces from the module name
+module_name = module_path.replace(' ', '_').replace('.py', '')
+
+# Load the module dynamically
+spec = importlib.util.spec_from_file_location(module_name, module_path)
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+
+# Call the main function from the module
+data = module.main()
+
+st.write(data)
 
 #######################
 # Page configuration
@@ -19,7 +35,6 @@ alt.themes.enable("dark")
 
 #######################
 # Load data
-calendar = pd.read_csv("calendar.csv")
 h1_opti = pd.read_csv('h1_opti.csv')
 h2_opti= pd.read_csv('h2_opti.csv')
 ho1_opti = pd.read_csv('ho1_opti.csv')

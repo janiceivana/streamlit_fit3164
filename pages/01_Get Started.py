@@ -15,5 +15,7 @@ def main():
             session_state.dataframes[file_name] = pd.read_csv(uploaded_file)
         st.success("Data loaded successfully!")
 
+    return session_state.dataframes
+
 if __name__ == "__main__":
     main()

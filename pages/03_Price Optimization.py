@@ -109,6 +109,7 @@ st.markdown('#### Price Optimization')
 st.header("Optimal Price")
 st.write(selected_data)
 
+st.write("The optimal price here is displayed on 'price' column, where the apporach here is calculating the cost and revenue in order to get the profit. From the profit, we can grab the price that maximize the profit based on the sell price, item id, and state")
 
 # with col[0]:
 #     vis_optimization_scatter(selected_data)

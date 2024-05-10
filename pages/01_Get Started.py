@@ -30,7 +30,7 @@ def main():
     if st.button("Process Files"):
         for uploaded_file in uploaded_files:
             file_name = uploaded_file.name.replace(".csv", "").replace(" ", "_")
-            session_state.csv_files[file_name] = uploaded_file.getvalue()
+            session_state.csv_files[file_name] = pd.read_csv(uploaded_file)
         st.success("Files processed successfully!")
 
 if __name__ == "__main__":

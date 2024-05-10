@@ -79,7 +79,7 @@ def vis_elasticity(data):
     data = data[data['price_change'] != max_value]
 
     # Create a scatter plot
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(10,10))
     ax.scatter(data['price_change'], data['sale_change'])
     ax.set_title('Scatter Plot of Price Change% vs Sale Change%')
     ax.set_xlabel('Price Change%')

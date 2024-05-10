@@ -62,7 +62,7 @@ def main():
     uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
     for uploaded_file in uploaded_files:
         file_name = uploaded_file.name.replace(".csv", "").replace(" ", "_")
-        bytes_data = uploaded_file.read()
+        bytes_data = pd.read_csv(uploaded_file)
         st.write(f"{file_name}:")
         st.write(bytes_data)
 

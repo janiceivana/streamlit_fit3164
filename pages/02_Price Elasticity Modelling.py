@@ -89,8 +89,11 @@ def vis_elasticity(data):
     # Display the plot using Streamlit
     st.pyplot(fig)
 
-    elasticity = data['elasticity'].mean()
+    elasticity = data['elasticity'].median()
     st.write(f'The elasticity: {elasticity}')
+
+    st.subheader("Main Findings")
+    st.write("As the discount increase from 0% to 10%, we can observe that the price elasticity goes up, this means that")
 
 #######################
 # Dashboard Main Panel

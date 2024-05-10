@@ -55,3 +55,18 @@ st.write(selected_data)
 
 st.header("Statistic Summary")
 st.write(selected_data.describe())
+
+
+
+def main():
+    st.title("Data Summary")
+
+    # Access uploaded files from session state
+    session_state = st.session_state
+    if 'csv_files' in session_state:
+        for name, data in session_state.csv_files.items():
+            st.write(f"DataFrame Name: {name}")
+            st.write(pd.read_csv(data))
+
+if __name__ == "__main__":
+    main()

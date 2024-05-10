@@ -68,21 +68,6 @@ with st.sidebar:
     selected_data = selected_data[selected_data['discount%'] == selected_disc]
 
 
-
-def main():
-    st.title("Data Modelling")
-
-    # Access uploaded files from session state
-    session_state = st.session_state
-    if 'csv_files' in session_state:
-        for name, data in session_state.csv_files.items():
-            st.write(f"DataFrame Name: {name}")
-            st.write(pd.read_csv(data))
-
-if __name__ == "__main__":
-    main()
-
-
 #######################
 
 def vis_elasticity(data):

@@ -59,6 +59,21 @@ st.write(selected_data.describe())
 
 
 def main():
+    st.title("Upload CSV Files")
+
+    uploaded_files = st.file_uploader("Upload CSV files", accept_multiple_files=True)
+
+    # Save uploaded files to session state
+    session_state = st.session_state
+    if 'csv_files' not in session_state:
+        session_state.csv_files = {}
+    
+    if st.button("Process Files"):
+        for uploaded_file in uploaded_files:
+            file_name = uploaded_file.name.replace(".csv", "").replace(" ", "_")
+            session_state.csv_files[file_name] = uploaded_file.getvalue()
+        st.success("Files processed successfully!")
+
     st.title("Data Summary")
 
     # Access uploaded files from session state

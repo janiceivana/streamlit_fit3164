@@ -9,5 +9,5 @@ for uploaded_file in uploaded_files:
     st.write("filename:", file_name)
     count = count + 1
 
-if len(uploaded_files) == count:
-    st.write("Hey, All the files are successfully uploaded")
+    if len(uploaded_files) == count:
+        st.write("Hey, All the files are successfully uploaded")

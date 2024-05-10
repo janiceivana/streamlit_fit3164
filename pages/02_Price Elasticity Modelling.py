@@ -103,7 +103,7 @@ def vis_elasticity(data):
         st.write("Price Elasticity: Perfectly elastic Demand Curve")
 
 #######################
-st.markdown('Price Elasticity Model')
+st.markdown('#### Price Elasticity Model')
 col = st.columns((6, 4), gap='medium')
 
 with col[0]:

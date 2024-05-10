@@ -18,7 +18,7 @@ alt.themes.enable("dark")
 
 #######################
 
-st.subheader("Upload your data here to get your summarisation!")
+st.markdown('#### Upload your data here to get your summarisation!')
 
 def main():
     uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)

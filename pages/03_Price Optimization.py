@@ -7,6 +7,7 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 from plotly import graph_objects as go
 import numpy as np
+from st_files_connection import FilesConnection
 
 
 #######################
@@ -21,14 +22,14 @@ alt.themes.enable("dark")
 
 #######################
 # Load data
-calendar = pd.read_csv("calendar.csv")
-h1_opti = pd.read_csv('h1_opti.csv')
-h2_opti= pd.read_csv('h2_opti.csv')
-ho1_opti = pd.read_csv('ho1_opti.csv')
-ho2_opti = pd.read_csv('ho2_opti.csv')
-f1_opti = pd.read_csv('f1_opti.csv')
-f2_opti = pd.read_csv('f2_opti.csv')
-f3_opti = pd.read_csv('f3_opti.csv')
+conn = st.connection('s3', type=FilesConnection)
+h1_opti = conn.read("fit3164-ds05/h1_opti.csv", input_format="csv")
+h2_opti = conn.read("fit3164-ds05/h2_opti.csv", input_format="csv")
+ho1_opti = conn.read("fit3164-ds05/ho1_opti.csv", input_format="csv")
+ho2_opti = conn.read("fit3164-ds05/ho2_opti.csv", input_format="csv")
+f1_opti = conn.read("fit3164-ds05/f1_opti.csv", input_format="csv")
+f2_opti = conn.read("fit3164-ds05/f2_opti.csv", input_format="csv")
+f3_opti = conn.read("fit3164-ds05/f3_opti.csv", input_format="csv")
 
 #######################
 dept_list = [ 'FOODS_3', 'FOODS_2', 'FOODS_1' , 'HOUSEHOLD_2', 'HOUSEHOLD_1', 'HOBBIES_2', 'HOBBIES_1']

@@ -66,8 +66,9 @@ def main():
     if 'csv_files' in session_state:
         for name, data in session_state.csv_files.items():
             st.write(f"DataFrame Name: {name}")
-            name = pd.read_csv(data)
-            st.write(name)
+            session_state[name] = pd.read_csv(data)
+            st.write(session_state[name])
+
 
 if __name__ == "__main__":
     main()

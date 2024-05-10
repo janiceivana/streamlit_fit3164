@@ -97,13 +97,10 @@ def vis_elasticity(data):
 
     st.write("Finding the optimal discount level and optimal sell price involves balancing price elasticity with profitability. Offering very high discounts might attract more customers, but if the discounts erode profitability too much, it may not be sustainable in the long run.")
 #######################
-# Dashboard Main Panel
-col = st.columns((4, 4), gap='medium')
 
-with col[0]:
-    st.markdown('#### Price Elasticity Model')
-    
-    vis_elasticity(selected_data)
+st.markdown('#### Price Elasticity Model')
+
+vis_elasticity(selected_data)
 
 
 

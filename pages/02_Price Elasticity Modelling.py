@@ -81,7 +81,6 @@ def vis_elasticity(data):
     # Create a scatter plot
     fig, ax = plt.subplots()
     ax.scatter(data['price_change'], data['sale_change'])
-    ax.set_title('Price Elasticity Model')
     ax.set_xlabel('Price Change%')
     ax.set_ylabel('Sale Change%')
     ax.grid(True)
@@ -104,7 +103,7 @@ def vis_elasticity(data):
         st.write("Price Elasticity: Perfectly elastic Demand Curve")
 
 #######################
-
+st.markdown('Price Elasticity Model')
 col = st.columns((6, 4), gap='medium')
 
 with col[0]:

@@ -66,7 +66,10 @@ def main():
     if 'csv_files' in session_state:
         for name, data in session_state.csv_files.items():
             st.write(f"DataFrame Name: {name}")
-            st.write(pd.read_csv(data))
+            try:
+                st.write(pd.read_csv(data))
+            except Exception as e:
+                st.error(f"Error reading CSV file: {e}")
 
 if __name__ == "__main__":
     main()

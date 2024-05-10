@@ -17,3 +17,6 @@ streamlit_cookies_controller
 python-tds
 pyodbc
 
+
+s3fs
+st-files-connection

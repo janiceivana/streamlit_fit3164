@@ -67,7 +67,7 @@ def main():
         for name, data in session_state.csv_files.items():
             st.write(f"DataFrame Name: {name}")
             try:
-                st.write(pd.read_csv(data))
+                st.write(data)
             except Exception as e:
                 st.error(f"Error reading CSV file: {e}")
 

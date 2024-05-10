@@ -90,7 +90,7 @@ def vis_elasticity(data):
     st.pyplot(fig)
 
     elasticity = data['elasticity'].mean()
-    st.write(elasticity)
+    st.write(f'The elasticity: {elasticity}')
 
 #######################
 # Dashboard Main Panel

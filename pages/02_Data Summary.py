@@ -59,30 +59,15 @@ st.write(selected_data.describe())
 
 
 def main():
-    st.title("Upload CSV Files")
-
-    uploaded_files = st.file_uploader("Upload CSV files", accept_multiple_files=True)
-
-    # Save uploaded files to session state
-    session_state = st.session_state
-    if 'csv_files' not in session_state:
-        session_state.csv_files = {}
-    
-    if st.button("Process Files"):
-        for uploaded_file in uploaded_files:
-            file_name = uploaded_file.name.replace(".csv", "").replace(" ", "_")
-            session_state.csv_files[file_name] = uploaded_file.getvalue()
-        st.success("Files processed successfully!")
+    uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
+    for uploaded_file in uploaded_files:
+        file_name = uploaded_file.name.replace(".csv", "").replace(" ", "_")
+        bytes_data = uploaded_file.read()
+        st.write(f"{file_name}:")
+        st.write(bytes_data)
 
     st.title("Data Summary")
 
-    # Access uploaded files from session state
-    session_state = st.session_state
-    if 'csv_files' in session_state:
-        for name, data in session_state.csv_files.items():
-            st.write(f"DataFrame Name: {name}")
-            session_state[name] = pd.read_csv(data)
-            st.write(session_state[name])
 
 
 if __name__ == "__main__":

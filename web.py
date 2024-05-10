@@ -20,8 +20,8 @@ with col1:
     
     
 with col2:
-    st.image("Image (1).jpeg")
     st.write("Jiayi Wang (Wendy) - 31513638")
+    st.image("Image (1).jpeg")
     
 with col3:
     st.write("Nguyen Pham (Chris) - 30750814")

@@ -24,6 +24,7 @@ with col2:
     
 with col3:
     st.write("Nguyen Pham (Chris) - 30750814")
+    st.image("pfp.jpeg")
 
 
 

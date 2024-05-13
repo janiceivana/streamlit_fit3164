@@ -120,8 +120,6 @@ st.write("However, when the discount started to rise up from 10% to 30%, the ela
 
 st.write("Finding the optimal discount level and optimal sell price involves balancing price elasticity with profitability. Offering very high discounts might attract more customers, but if the discounts erode profitability too much, it may not be sustainable in the long run.")
 
-st.write("The optimal price here is displayed on 'price' column, where the apporach here is calculating the cost and revenue in order to get the profit. From the profit, we can grab the price that maximize the profit based on the sell price, item id, and state")
-
 
 
 

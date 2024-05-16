@@ -23,13 +23,14 @@ alt.themes.enable("dark")
 #######################
 # Load data
 conn = st.connection('s3', type=FilesConnection)
-h1_opti = conn.read("fit3164-ds-05/h1_opti.csv", input_format="csv")
-h2_opti = conn.read("fit3164-ds-05/h2_opti.csv", input_format="csv")
-ho1_opti = conn.read("fit3164-ds-05/ho1_opti.csv", input_format="csv")
-ho2_opti = conn.read("fit3164-ds-05/ho2_opti.csv", input_format="csv")
-f1_opti = conn.read("fit3164-ds-05/f1_opti.csv", input_format="csv")
-f2_opti = conn.read("fit3164-ds-05/f2_opti.csv", input_format="csv")
-f3_opti = conn.read("fit3164-ds-05/f3_opti.csv", input_format="csv")
+h1_opti = conn.read("fit3164-ds05/h1_opti.csv", input_format="csv")
+h2_opti = conn.read("fit3164-ds05/h2_opti.csv", input_format="csv")
+ho1_opti = conn.read("fit3164-ds05/ho1_opti.csv", input_format="csv")
+ho2_opti = conn.read("fit3164-ds05/ho2_opti.csv", input_format="csv")
+f1_opti = conn.read("fit3164-ds05/f1_opti.csv", input_format="csv")
+f2_opti = conn.read("fit3164-ds05/f2_opti.csv", input_format="csv")
+f3_opti = conn.read("fit3164-ds05/f3_opti.csv", input_format="csv")
+
 
 #######################
 dept_list = [ 'FOODS_3', 'FOODS_2', 'FOODS_1' , 'HOUSEHOLD_2', 'HOUSEHOLD_1', 'HOBBIES_2', 'HOBBIES_1']
@@ -109,7 +110,7 @@ st.markdown('#### Price Optimization')
 st.header("Optimal Price")
 st.write(selected_data)
 
-st.write("The predicted total sales are retrieve from Random Forest Regression, where its splits the data to testing and training, along with setting up the X (independent variables): price, discount_price, and elasticity, and y(dependent variables) : sale_perday * target_days, and plug in to the Random Forest Regression, where the testing took overall 20% of the data, and 80% for training data.")
+# st.write("The predicted total sales are retrieve from Random Forest Regression, where its splits the data to testing and training, along with setting up the X (independent variables): price, discount_price, and elasticity, and y(dependent variables) : sale_perday * target_days, and plug in to the Random Forest Regression, where the testing took overall 20% of the data, and 80% for training data.")
 
 st.write("The optimal price here is displayed on 'price' column, where the apporach here is calculating the cost and revenue in order to get the profit. From the profit, we can grab the price that maximize the profit based on the sell price, item id, and state")
 

@@ -109,6 +109,8 @@ st.markdown('#### Price Optimization')
 st.header("Optimal Price")
 st.write(selected_data)
 
+st.write("The predicted total sales are retrieve from Random Forest Regression, where its splits the data to testing and training, along with setting up the X (independent variables): price, discount_price, and elasticity, and y(dependent variables) : sale_perday * target_days, and plug in to the Random Forest Regression, where the testing took overall 20% of the data, and 80% for training data.")
+
 st.write("The optimal price here is displayed on 'price' column, where the apporach here is calculating the cost and revenue in order to get the profit. From the profit, we can grab the price that maximize the profit based on the sell price, item id, and state")
 
 # with col[0]:

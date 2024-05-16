@@ -23,13 +23,13 @@ alt.themes.enable("dark")
 #######################
 # Load data
 conn = st.connection('s3', type=FilesConnection)
-h1_opti = conn.read("fit3164-ds05/h1_opti.csv", input_format="csv")
-h2_opti = conn.read("fit3164-ds05/h2_opti.csv", input_format="csv")
-ho1_opti = conn.read("fit3164-ds05/ho1_opti.csv", input_format="csv")
-ho2_opti = conn.read("fit3164-ds05/ho2_opti.csv", input_format="csv")
-f1_opti = conn.read("fit3164-ds05/f1_opti.csv", input_format="csv")
-f2_opti = conn.read("fit3164-ds05/f2_opti.csv", input_format="csv")
-f3_opti = conn.read("fit3164-ds05/f3_opti.csv", input_format="csv")
+h1_opti = conn.read("fit3164-ds-05/h1_opti.csv", input_format="csv")
+h2_opti = conn.read("fit3164-ds-05/h2_opti.csv", input_format="csv")
+ho1_opti = conn.read("fit3164-ds-05/ho1_opti.csv", input_format="csv")
+ho2_opti = conn.read("fit3164-ds-05/ho2_opti.csv", input_format="csv")
+f1_opti = conn.read("fit3164-ds-05/f1_opti.csv", input_format="csv")
+f2_opti = conn.read("fit3164-ds-05/f2_opti.csv", input_format="csv")
+f3_opti = conn.read("fit3164-ds-05/f3_opti.csv", input_format="csv")
 
 #######################
 dept_list = [ 'FOODS_3', 'FOODS_2', 'FOODS_1' , 'HOUSEHOLD_2', 'HOUSEHOLD_1', 'HOBBIES_2', 'HOBBIES_1']

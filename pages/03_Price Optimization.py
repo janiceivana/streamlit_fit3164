@@ -67,55 +67,14 @@ with st.sidebar:
     if selected_state != 'Overall':
         selected_data = selected_data[selected_data.state_id == selected_state]
 
-# #######################
-# def vis_optimization_scatter(data):
-#     # Create a scatter plot for the original and optimized data with trendline
-#     fig = px.scatter(data, x='price', y='revenue', title='Original vs. Optimized Revenue',
-#                      labels={'price': 'Price', 'revenue': 'Revenue'},
-#                      color_discrete_map={'price': 'blue'},
-#                      opacity=0.7)  # Add Ordinary Least Squares trendline
-    
-#     # Add optimized data as separate markers
-#     fig.add_trace(go.Scatter(x=data['opti_price'], y=data['optimized_revenue'],
-#                              mode='markers', marker_symbol='x', marker_color='orange',opacity=0.7,
-#                              name='Optimized Data'))
-
-#     # Display the plot using Streamlit
-#     st.plotly_chart(fig, use_container_width=True)
-
-
-# def vis_optimization_bar(data):
-#     # Create a DataFrame for the bar chart
-#     df = pd.DataFrame({
-#         'Price Type': ['Original', 'Optimized'],
-#         'Price': [data['price'].sum(), data['opti_price'].sum()],
-#         'Revenue': [data['revenue'].sum(), data['optimized_revenue'].sum()]
-#     })
-
-#     # Create a bar chart for the original and optimized data
-#     fig = px.bar(df, x='Price Type', y=['Revenue', 'Price'],
-#                  title='Total Original vs. Optimized Revenue and Price',
-#                  barmode='group',
-#                  labels={'value': 'Total Value', 'variable': 'Metric'})
-
-#     # Display the plot using Streamlit
-#     st.plotly_chart(fig, use_container_width=True)
-
 
 #######################
 # Dashboard Main Panel
 st.markdown('#### Price Optimization')
-# col = st.columns((4, 4), gap='medium')
 
 st.header("Optimal Price")
 st.write(selected_data)
 
-# st.write("The predicted total sales are retrieve from Random Forest Regression, where its splits the data to testing and training, along with setting up the X (independent variables): price, discount_price, and elasticity, and y(dependent variables) : sale_perday * target_days, and plug in to the Random Forest Regression, where the testing took overall 20% of the data, and 80% for training data.")
 
 st.write("The optimal price here is displayed on 'price' column, where the apporach here is calculating the cost and revenue in order to get the profit. From the profit, we can grab the price that maximize the profit based on the sell price, item id, and state")
 
-# with col[0]:
-#     vis_optimization_scatter(selected_data)
-
-# with col[1]:
-#     vis_optimization_bar(selected_data)
